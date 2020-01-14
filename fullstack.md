@@ -12,7 +12,7 @@ Full-stack
 Ruby on Rails, Ruby
 
 ## Tecnologias desejáveis
-Testes automatizados, Linux, Continuous Integration/Deployment(CI/CD), AWS
+Testes automatizados, Linux, Continuous Integration/Deployment(CI/CD), Azure, Microserviços
 
 ## Modalidade de trabalho
 Remoto
@@ -21,7 +21,7 @@ Remoto
 ruby, rails, api, ecomerce
 
 ## Faixa Salarial (CLT)
-Mande sua proposta :)
+5k a 8k
 
 ## Benefícios
 Plano de saúde, Vale refeição
