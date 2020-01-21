@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe EmployeesController, type: :controller do
+RSpec.describe Managers::EmployeesController, type: :controller do
   let(:employee) { create(:employee) }
 
   describe 'POST #create' do
