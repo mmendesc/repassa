@@ -2,10 +2,10 @@ class AvaliationSerializer < ApplicationSerializer
   attributes :grade, :comment
 
   attribute :employee do |avaliation|
-    avaliation.employee
+    EmployeeSerializer.new(avaliation.employee).serializable_hash
   end
 
   attribute :manager do |avaliation|
-    avaliation.manager
+    ManagerSerializer.new(avaliation.manager).serializable_hash
   end
 end
