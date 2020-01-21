@@ -170,6 +170,7 @@ GEM
     rspec-expectations (3.8.4)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.8.0)
+    rspec-json_expectations (2.2.0)
     rspec-mocks (3.8.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.8.0)
@@ -252,6 +253,7 @@ DEPENDENCIES
   pry
   puma (~> 3.11)
   rails (~> 5.2.3)
+  rspec-json_expectations
   rspec-rails
   sass-rails (~> 5.0)
   selenium-webdriver
