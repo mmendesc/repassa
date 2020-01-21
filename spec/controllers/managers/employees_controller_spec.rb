@@ -4,6 +4,11 @@ require 'rails_helper'
 
 RSpec.describe Managers::EmployeesController, type: :controller do
   let(:employee) { create(:employee) }
+  let(:manager) { create(:manager) }
+
+  before do
+    sign_in manager
+  end
 
   describe 'POST #create' do
     subject(:create_employee) { post :create, params: params}

@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :avaliation do
     sequence(:grade) { |i| i }
-    comment { 'lorem ipsum' }
+    sequence(:comment) { |i| "lorem ipsum #{i}" }
 
     manager
     employee
