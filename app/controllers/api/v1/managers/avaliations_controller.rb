@@ -2,6 +2,7 @@
 
 # Controller of avaliations
 class Api::V1::Managers::AvaliationsController < Api::V1::Managers::ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_avaliation, except: %i[index create]
 
   def index

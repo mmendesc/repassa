@@ -16,7 +16,7 @@ class Api::V1::Managers::EmployeesController < Api::V1::Managers::ApplicationCon
   end
 
   def create
-    @employee = Employees::CreateService.run(employee_params).result
+    @employee = ::Employees::CreateService.run(employee_params).result
 
     render json: EmployeeSerializer.new(@employee)
   end
