@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Controller of sessions
-class Api::V1::Employees::SessionsController < Api::V1::Employees::ApplicationController
+class Api::V1::Managers::SessionsController < Api::V1::Managers::ApplicationController
   skip_before_action :verify_authenticity_token
 
   include Devise::Controllers::Helpers
@@ -11,13 +11,13 @@ class Api::V1::Employees::SessionsController < Api::V1::Employees::ApplicationCo
   respond_to :json
 
   def create
-    resource = Employee.find_by(email: params[:login][:email])
+    resource = Manager.find_by(email: params[:login][:email])
 
     return invalid_login_attempt unless resource
 
     if resource.valid_password?(params[:login][:password])
-      sign_in("employee", resource)
-      render json: { success: true, auth_token: resource.token, email: resource.email, namespace: 'employees', name: resource.name }
+      sign_in("manager", resource)
+      render json: { success: true, auth_token: resource.token, email: resource.email, namespace: 'managers', name: resource.name }
       return
     end
     invalid_login_attempt
@@ -32,7 +32,7 @@ class Api::V1::Employees::SessionsController < Api::V1::Employees::ApplicationCo
   def ensure_params_exist
     return unless params[:login].blank?
 
-    render json: {success: false, message: "missing employee parameter"}, status: 422
+    render json: {success: false, message: "missing manager parameter"}, status: 422
   end
 
   def invalid_login_attempt

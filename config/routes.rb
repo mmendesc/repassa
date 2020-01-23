@@ -7,6 +7,8 @@ Rails.application.routes.draw do
       namespace :managers do
         resources :employees, except: %i[new edit]
         resources :avaliations, except: %i[new edit]
+
+        post '/sign_in' => 'sessions#create'
       end
 
       namespace :employees do
