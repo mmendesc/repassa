@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Managers::EmployeesController, type: :controller do
+RSpec.describe Api::V1::Managers::EmployeesController, type: :controller do
   let(:employee) { create(:employee) }
   let(:manager) { create(:manager) }
 

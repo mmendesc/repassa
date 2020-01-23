@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Controller of employees
-class Managers::EmployeesController < Managers::ApplicationController
+class Api::V1::Managers::EmployeesController < Api::V1::Managers::ApplicationController
   before_action :set_employee, except: %i[index create]
 
   def index

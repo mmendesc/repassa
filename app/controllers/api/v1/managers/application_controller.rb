@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
 # Base controller for managers
-class Managers::ApplicationController < ApplicationController
+class Api::V1::Managers::ApplicationController < ApplicationController
   before_action :authenticate_manager!
 end

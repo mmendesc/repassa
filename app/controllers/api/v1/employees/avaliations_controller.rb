@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Controller of avaliations
-class Employees::AvaliationsController < Employees::ApplicationController
+class Api::V1::Employees::AvaliationsController < Api::V1::Employees::ApplicationController
   before_action :set_avaliation, only: %i[show]
 
   def index

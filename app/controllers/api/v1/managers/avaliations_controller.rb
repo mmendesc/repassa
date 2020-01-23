@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Controller of avaliations
-class Managers::AvaliationsController < Managers::ApplicationController
+class Api::V1::Managers::AvaliationsController < Api::V1::Managers::ApplicationController
   before_action :set_avaliation, except: %i[index create]
 
   def index

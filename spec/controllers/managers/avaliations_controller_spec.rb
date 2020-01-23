@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Managers::AvaliationsController, type: :controller do
+RSpec.describe Api::V1::Managers::AvaliationsController, type: :controller do
   let(:manager) { create(:manager) }
   let(:employee) { create(:employee) }
   let(:avaliation) { create(:avaliation, manager: manager, employee: employee) }

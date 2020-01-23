@@ -2,12 +2,18 @@ Rails.application.routes.draw do
   devise_for :managers
   devise_for :employees
 
-  namespace :managers do
-    resources :employees, except: %i[new edit]
-    resources :avaliations, except: %i[new edit]
-  end
+  namespace :api do
+    namespace :v1 do
+      namespace :managers do
+        resources :employees, except: %i[new edit]
+        resources :avaliations, except: %i[new edit]
+      end
 
-  namespace :employees do
-    resources :avaliations, only: %i[index show]
+      namespace :employees do
+        resources :avaliations, only: %i[index show]
+
+        post '/sign_in' => 'sessions#create'
+      end
+    end
   end
 end

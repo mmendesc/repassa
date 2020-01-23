@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Controller of sessions
-class Employees::SessionsController < Employees::ApplicationController
+class Api::V1::Employees::SessionsController < Api::V1::Employees::ApplicationController
   prepend_before_filter :require_no_authentication, :only => [:create ]
   include Devise::Controllers::InternalHelpers
 
