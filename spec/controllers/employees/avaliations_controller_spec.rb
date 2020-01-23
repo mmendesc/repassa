@@ -8,9 +8,8 @@ RSpec.describe Api::V1::Employees::AvaliationsController, type: :controller do
   let(:another_avaliation) { create(:avaliation) }
 
   before do
-    sign_in employee
+    request.headers.merge!({ 'Authorization' => "Bearer #{employee.token}"})
   end
-
   describe 'GET #show' do
     subject(:show_avaliation) { get :show, params: params }
 
