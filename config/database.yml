@@ -22,4 +22,4 @@ production:
   <<: *default
   database: repassa_production
   username: repassa
-  password: repassaTeste
+  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
