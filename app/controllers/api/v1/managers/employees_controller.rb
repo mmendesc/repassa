@@ -2,6 +2,7 @@
 
 # Controller of employees
 class Api::V1::Managers::EmployeesController < Api::V1::Managers::ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_employee, except: %i[index create]
 
   def index
