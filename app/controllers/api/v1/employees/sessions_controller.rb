@@ -2,15 +2,16 @@
 
 # Controller of sessions
 class Api::V1::Employees::SessionsController < Api::V1::Employees::ApplicationController
-  prepend_before_filter :require_no_authentication, :only => [:create ]
-  include Devise::Controllers::InternalHelpers
+  skip_before_action :authenticate_employee!
+  skip_before_action :verify_authenticity_token
 
-  before_filter :ensure_params_exist
+  include Devise::Controllers::Helpers
+
+  before_action :ensure_params_exist
 
   respond_to :json
 
   def create
-    build_resource
     resource = Employee.find_by(email: params[:employee][:email])
 
     return invalid_login_attempt unless resource
@@ -32,7 +33,7 @@ class Api::V1::Employees::SessionsController < Api::V1::Employees::ApplicationCo
   def ensure_params_exist
     return unless params[:employee].blank?
 
-    render json: {success: false, :message: "missing employee parameter"}, status: 422
+    render json: {success: false, message: "missing employee parameter"}, status: 422
   end
 
   def invalid_login_attempt
