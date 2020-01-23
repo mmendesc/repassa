@@ -1,0 +1,25 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  username: repassa
+  port: 5432
+  password:
+
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#databasepooling
+  pool: 5
+
+development:
+  <<: *default
+  database: repassa_development
+
+test:
+  <<: *default
+  database: repassa_test
+
+production:
+  <<: *default
+  database: repassa_production
+  username: repassa
+  password: repassaTeste
