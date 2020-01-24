@@ -7,6 +7,21 @@ email: admin@email.com<br />
 password: 12345678
 
 URL FRONT= https://mighty-lowlands-32432.herokuapp.com/
+URL_BACK = https://whispering-wave-20225.herokuapp.com/api/v1
+
+OBS: é necessário esperar um pouco quando for testar, devido ao plano gratuito do heroku
+pois o servidor pode estar hibernando.
+
+Observações:
+Devido ao tempo livre que tive para o desafio não consegui fazer tudo:
+- Endpoint de edição de avaliação não foi feito.
+- Endpoint/Página de criação de Managers não foi criada, foquei no objetivo de criar empregados/Avaliações
+- Possui somente 1 Manager como informado acima, que foi criado via console
+- Não tive tempo de adicionar um template na aplicação do Front
+- Faltou alguns tratamentos de errors em certos endpoints
+- Não adicionei paginação nas listagens
+- Não utilizei Redux no front, nem troquei o useState para o useReducer quando era necessário
+
 
 **API**
 ----
@@ -102,6 +117,17 @@ URL FRONT= https://mighty-lowlands-32432.herokuapp.com/
 
   `PUT` | `/api/v1/managers/employees/:id`<br />
 
+  * **Required Params**
+  ```
+    {
+      employee: {
+        name: 'nome'|String,
+        email: 'email'|String,
+        password: 'senha'|String,
+        password_confirmation: 'senha'|String
+      }
+    }
+  ```
 ----
 
 * **Destroy**
@@ -151,18 +177,18 @@ URL FRONT= https://mighty-lowlands-32432.herokuapp.com/
 
 ----
 
-* **Update**
-
-  `PUT` | `/api/v1/managers/avaliations/:id`<br />
-
-----
-
 * **Destroy**
 
   `DELETE` | `/api/v1/managers/avaliations/:id`<br />
 
 ----
 
+**Resposta Bonus 2**
+Para resolver esse problema, utilizaria do Sidekiq e Redis
+- Criaria uma fila de request para que possam ser executados assincronamente
+- A cada request de venda, adiciona um worker na fila de request, que vão sendo executados conforme o servidor comportar
+- Como o relatório não é feito a todo momento, há tempo para que toda a fila seja processada antes da geração do relatório
+- Essa fila pode ter uma prioridade baixa, para que não atrapalhe as outras requests do sistema
 
 # Desafio desenvolvedor Repassa
 
