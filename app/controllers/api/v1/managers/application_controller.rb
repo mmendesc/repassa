@@ -12,6 +12,11 @@ class Api::V1::Managers::ApplicationController < ApplicationController
 
   def authenticate_token
     @current_manager = Manager.find_by(token: request_token)
+
+    return if @current_manager
+
+    render json: { error: 'Não autorizado ' }, status: 401
+
   rescue ActiveRecord::RecordNotFound, JWT::DecodeError => e
     nil
   end

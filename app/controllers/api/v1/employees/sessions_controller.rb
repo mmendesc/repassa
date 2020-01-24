@@ -3,6 +3,7 @@
 # Controller of sessions
 class Api::V1::Employees::SessionsController < Api::V1::Employees::ApplicationController
   skip_before_action :verify_authenticity_token
+  skip_before_action :authenticate_token
 
   include Devise::Controllers::Helpers
 

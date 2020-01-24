@@ -14,7 +14,12 @@ class Api::V1::Employees::ApplicationController < ApplicationController
 
   def authenticate_token
     @current_employee = Employee.find_by(token: request_token)
-  rescue ActiveRecord::RecordNotFound, JWT::DecodeError => e
+
+    return if @current_employee
+
+    render json: { error: 'Não autorizado ' }, status: 401
+
+  rescue ActiveRecord::RecordNotFound => e
     nil
   end
 end

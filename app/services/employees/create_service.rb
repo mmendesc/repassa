@@ -15,6 +15,7 @@ class Employees::CreateService < ApplicationService
 
   def create_employee
     @employee = Employee.new(params)
+    @employee.token = Devise.friendly_token
     @employee.save
   end
 end

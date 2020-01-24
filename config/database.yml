@@ -2,7 +2,7 @@ default: &default
   adapter: postgresql
   encoding: unicode
   host: localhost
-  username: repassa
+  username: mmendesc
   port: 5432
   password:
 
@@ -17,9 +17,3 @@ development:
 test:
   <<: *default
   database: repassa_test
-
-production:
-  <<: *default
-  database: repassa_production
-  username: repassa
-  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
