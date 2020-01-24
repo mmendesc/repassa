@@ -11,29 +11,30 @@ password: 12345678
 
 `METHOD` | `URL` | `PARAMS`
 
-* **Session**
+**Session**
+----
 
 * **Sign In**
 
   `POST` | `/api/v1/:namespace/sign_in`<br />
 
-* **Required Params**
-```
-  {
-    login: {
-      email: 'admin-email',
-      password: 'senha'
+  * **Required Params**
+  ```
+    {
+      login: {
+        email: 'admin-email',
+        password: 'senha'
+      }
     }
-  }
-```
-* **Response**
-```
-  {
-    success: true,
-    auth_token: 'seu-token-para-fazer-requests',
-    namespace: 'namespace atual(employees || managers)'
-  }
-```
+  ```
+  * **Response**
+  ```
+    {
+      success: true,
+      auth_token: 'seu-token-para-fazer-requests',
+      namespace: 'namespace atual(employees || managers)'
+    }
+  ```
 
 ----
 
@@ -41,17 +42,17 @@ password: 12345678
 
   `POST` | `/api/v1/:namespace/sign_out`<br />
 
-* **Required Headers**
-```
-  {
-    'Authorization': 'Bearer ${token-obtido-no-sign-in}'
-  }
-```
+  * **Required Headers**
+  ```
+    {
+      'Authorization': 'Bearer ${token-obtido-no-sign-in}'
+    }
+  ```
 
-* **Response**
-```
-  { }
-```
+  * **Response**
+  ```
+    { }
+  ```
 
 ----
 
