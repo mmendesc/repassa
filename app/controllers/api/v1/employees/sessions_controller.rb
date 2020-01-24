@@ -3,11 +3,11 @@
 # Controller of sessions
 class Api::V1::Employees::SessionsController < Api::V1::Employees::ApplicationController
   skip_before_action :verify_authenticity_token
-  skip_before_action :authenticate_token
+  skip_before_action :authenticate_token, only: %i[create]
 
   include Devise::Controllers::Helpers
 
-  before_action :ensure_params_exist
+  before_action :ensure_params_exist, only: %i[create]
 
   respond_to :json
 
@@ -25,7 +25,13 @@ class Api::V1::Employees::SessionsController < Api::V1::Employees::ApplicationCo
   end
 
   def destroy
-    sign_out(resource_name)
+    new_token = Devise.friendly_token
+
+    @current_employee.update(token: new_token)
+
+    sign_out(@current_employee)
+
+    render json: { success: true }, status: 200
   end
 
   protected

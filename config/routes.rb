@@ -9,6 +9,7 @@ Rails.application.routes.draw do
         resources :avaliations, except: %i[new edit]
 
         post '/sign_in' => 'sessions#create'
+        delete '/sign_out' => 'sessions#destroy'
 
         root to: 'avaliations#index'
       end
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
         resources :avaliations, only: %i[index show]
 
         post '/sign_in' => 'sessions#create'
+        delete '/sign_out' => 'sessions#destroy'
 
         root to: 'avaliations#index'
       end
