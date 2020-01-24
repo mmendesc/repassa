@@ -2,27 +2,27 @@
 
 require 'rails_helper'
 
-RSpec.describe Api::V1::Employees::SessionsController, type: :controller do
-  let(:employee) { create(:employee) }
+RSpec.describe Api::V1::Managers::SessionsController, type: :controller do
+  let(:manager) { create(:manager) }
 
   describe 'POST #create' do
-    subject(:login) { post :create, params: params }
+    subject(:sign_in) { post :create, params: params }
 
     let(:params) do
       {
         login: {
-          email: employee.email,
+          email: manager.email,
           password: '12345678'
         }
       }
     end
 
     it 'sign in' do
-      login
+      sign_in
       expect(response.body).to include_json(
         success: true,
-        auth_token: employee.token,
-        email: employee.email
+        auth_token: manager.token,
+        email: manager.email
       )
     end
   end
@@ -31,7 +31,7 @@ RSpec.describe Api::V1::Employees::SessionsController, type: :controller do
     subject(:sign_out) { delete :destroy }
 
     before do
-      request.headers.merge!({ 'Authorization' => "Bearer #{employee.token}"})
+      request.headers.merge!({ 'Authorization' => "Bearer #{manager.token}"})
     end
 
     it 'sign out' do

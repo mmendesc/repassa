@@ -40,7 +40,11 @@ class Api::V1::Managers::EmployeesController < Api::V1::Managers::ApplicationCon
   private
 
   def set_employee
-    @employee = Employee.find(params[:id])
+    @employee = Employee.find_by(id: params[:id])
+
+    return if @employee
+
+    render json: { error: 'Não encontrado' }, status: 404
   end
 
   def employee_params

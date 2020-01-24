@@ -7,11 +7,11 @@ RSpec.describe Api::V1::Managers::EmployeesController, type: :controller do
   let(:manager) { create(:manager) }
 
   before do
-    sign_in manager
+    request.headers.merge!({ 'Authorization' => "Bearer #{manager.token}"})
   end
 
   describe 'POST #create' do
-    subject(:create_employee) { post :create, params: params}
+    subject(:create_employee) { post :create, params: params }
 
     let(:params) { {} }
     let(:employee) { create(:employee) }

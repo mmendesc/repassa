@@ -46,7 +46,11 @@ class Api::V1::Managers::AvaliationsController < Api::V1::Managers::ApplicationC
   private
 
   def set_avaliation
-    @avaliation = Avaliation.find(params[:id])
+    @avaliation = Avaliation.find_by(id: params[:id])
+
+    return if @avaliation
+
+    render json: { error: 'Não encontrado' }, status: 404
   end
 
   def avaliation_params

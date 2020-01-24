@@ -8,7 +8,7 @@ RSpec.describe Api::V1::Managers::AvaliationsController, type: :controller do
   let(:avaliation) { create(:avaliation, manager: manager, employee: employee) }
 
   before do
-    sign_in manager
+    request.headers.merge!({ 'Authorization' => "Bearer #{manager.token}"})
   end
 
   describe 'POST #create' do
