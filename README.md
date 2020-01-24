@@ -6,6 +6,8 @@ Usuario Admin:
 email: admin@email.com<br />
 password: 12345678
 
+URL FRONT= https://mighty-lowlands-32432.herokuapp.com/
+
 **API**
 ----
 
@@ -40,7 +42,7 @@ password: 12345678
 
 * **Sign Out**
 
-  `POST` | `/api/v1/:namespace/sign_out`<br />
+  `DELETE` | `/api/v1/:namespace/sign_out`<br />
 
   * **Required Headers**
   ```
@@ -57,6 +59,8 @@ password: 12345678
 ----
 
 **Employees**
+----
+
   * **Required Headers**
   ```
     {
@@ -66,13 +70,96 @@ password: 12345678
 
 * **Index**
 
-  `POST` | `/api/v1/managers/employees`<br />
+  `GET` | `/api/v1/managers/employees`<br />
 
 ----
 
 * **Show**
 
-  `POST` | `/api/v1/managers/employees/:id`<br />
+  `GET` | `/api/v1/managers/employees/:id`<br />
+
+----
+
+* **Create**
+
+  `POST` | `/api/v1/managers/employees`<br />
+
+  * **Required Params**
+  ```
+    {
+      employee: {
+        name: 'nome'|String,
+        email: 'email'|String,
+        password: 'senha'|String,
+        password_confirmation: 'senha'|String
+      }
+    }
+  ```
+
+----
+
+* **Update**
+
+  `PUT` | `/api/v1/managers/employees/:id`<br />
+
+----
+
+* **Destroy**
+
+  `DELETE` | `/api/v1/managers/employees/:id`<br />
+
+----
+
+
+
+**Avaliations**
+----
+
+  * **Required Headers**
+    ```
+      {
+        'Authorization': 'Bearer ${token-obtido-no-sign-in}'
+      }
+    ```
+
+* **Index**
+
+  `GET` | `/api/v1/:namespace/avaliations`<br />
+
+----
+
+* **Show**
+
+  `GET` | `/api/v1/managers/avaliations/:id`<br />
+
+----
+
+* **Create**
+
+  `POST` | `/api/v1/managers/avaliations`<br />
+
+  * **Required Params**
+  ```
+    {
+      avaliation: {
+        employee_id: '42|Integer',
+        grade: 9|Integer,
+        comment: 'comentario'|String,
+      }
+    }
+  ```
+
+----
+
+* **Update**
+
+  `PUT` | `/api/v1/managers/avaliations/:id`<br />
+
+----
+
+* **Destroy**
+
+  `DELETE` | `/api/v1/managers/avaliations/:id`<br />
 
 ----
 
