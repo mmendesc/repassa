@@ -37,6 +37,12 @@ class Api::V1::Managers::EmployeesController < Api::V1::Managers::ApplicationCon
     end
   end
 
+  def avaliations
+    @avaliations = @employee.avaliations
+
+    render json: AvaliationSerializer.new(@avaliations)
+  end
+
   private
 
   def set_employee

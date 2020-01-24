@@ -5,7 +5,12 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       namespace :managers do
-        resources :employees, except: %i[new edit]
+        resources :employees, except: %i[new edit] do
+          member do
+            get :avaliations
+          end
+        end
+
         resources :avaliations, except: %i[new edit]
 
         post '/sign_in' => 'sessions#create'
