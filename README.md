@@ -6,8 +6,11 @@ Usuario Admin:
 email: admin@email.com<br />
 password: 12345678
 
-URL FRONT= https://mighty-lowlands-32432.herokuapp.com/
-URL_BACK = https://whispering-wave-20225.herokuapp.com/api/v1
+URL FRONT= https://mighty-lowlands-32432.herokuapp.com/<br />
+Sign_in Managers: https://mighty-lowlands-32432.herokuapp.com/managers/sign_in<br />
+
+URL_BACK = https://whispering-wave-20225.herokuapp.com/api/v1<br />
+Sign_in Employees: https://mighty-lowlands-32432.herokuapp.com/employees/sign_in<br />
 
 OBS: é necessário esperar um pouco quando for testar, devido ao plano gratuito do heroku
 pois o servidor pode estar hibernando.
