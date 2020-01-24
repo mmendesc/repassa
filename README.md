@@ -1,4 +1,4 @@
-**Documentção**
+**Documentação**
 ----
 
 Usuario Admin:
@@ -11,11 +11,13 @@ password: 12345678
 
 `METHOD` | `URL` | `PARAMS`
 
-* **URL**
+* **Session**
 
-  {host}/api/v1/managers/sign_in
+* **Sign In**
 
-* **Required**
+  `POST` | `/api/v1/:namespace/sign_in`<br />
+
+* **Required Params**
 ```
   {
     login: {
@@ -24,10 +26,32 @@ password: 12345678
     }
   }
 ```
-* **Permission**
+* **Response**
+```
+  {
+    success: true,
+    auth_token: 'seu-token-para-fazer-requests',
+    namespace: 'namespace atual(employees || managers)'
+  }
+```
 
+----
 
-  `permission=master` If is a admin request
+* **Sign Out**
+
+  `POST` | `/api/v1/:namespace/sign_out`<br />
+
+* **Required Headers**
+```
+  {
+    'Authorization': 'Bearer ${token-obtido-no-sign-in}'
+  }
+```
+
+* **Response**
+```
+  { }
+```
 
 ----
 
