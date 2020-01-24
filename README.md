@@ -24,7 +24,7 @@ Devido ao tempo livre que tive para o desafio não consegui fazer tudo:
 - Faltou alguns tratamentos de errors em certos endpoints
 - Não adicionei paginação nas listagens
 - Não utilizei Redux no front, nem troquei o useState para o useReducer quando era necessário
-
+- Não adicionei variavel de ambiente no projeto do Front, para trocar as requests, caso for testar local, modificar src/settings `axios.defaults.baseURL`
 
 **API**
 ----
